@@ -1,0 +1,23 @@
+{
+    "customers": [
+      { "id": 1, "name": "Ahmad Ali" },
+      { "id": 2, "name": "Ayesha Elwyen" },
+      { "id": 3, "name": "Hina Ado" },
+      { "id": 4, "name": "Sarah Red" },
+      { "id": 5, "name": "Mohamed Sayen" }
+    ],
+    "transactions": [
+      { "id": 1, "customer_id": 1, "date": "2022-01-01", "amount": 100 },
+      { "id": 2, "customer_id": 1, "date": "2022-01-02", "amount": 200 },
+      { "id": 3, "customer_id": 2, "date": "2022-01-01", "amount": 50 },
+      { "id": 4, "customer_id": 2, "date": "2022-01-02", "amount": 150 },
+      { "id": 5, "customer_id": 3, "date": "2022-01-01", "amount": 75 },
+      { "id": 6, "customer_id": 3, "date": "2022-01-02", "amount": 125 },
+      { "id": 7, "customer_id": 4, "date": "2022-01-01", "amount": 200 },
+      { "id": 8, "customer_id": 4, "date": "2022-01-02", "amount": 300 },
+      { "id": 9, "customer_id": 5, "date": "2022-01-01", "amount": 50 },
+      { "id": 10, "customer_id": 5, "date": "2022-01-02", "amount": 100 },
+      { "id": 10, "customer_id": 5, "date": "2022-01-03", "amount": 50 }
+    ]
+  }
+  
