@@ -1,12 +1,18 @@
 async function fetchData() {
-  const customersResponse = await fetch("http://localhost:3000/customers");
-  const transactionsResponse = await fetch(
-    "http://localhost:3000/transactions"
-  );
-  const customers = await customersResponse.json();
-  const transactions = await transactionsResponse.json();
+  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
-  return { customers, transactions };
+  try {
+    const customersResponse = await fetch(proxyUrl + "http://localhost:3000/customers");
+    const transactionsResponse = await fetch(proxyUrl + "http://localhost:3000/transactions");
+
+    const customers = await customersResponse.json();
+    const transactions = await transactionsResponse.json();
+
+    return { customers, transactions };
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw error;
+  }
 }
 
 function getTransactionCounts(data) {
