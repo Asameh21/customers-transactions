@@ -1,18 +1,10 @@
 async function fetchData() {
-  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+  const response = await fetch("https://asameh21.github.io/customers-transactions/json/db.json");
+  const data = await response.json();
+  const customers = data.customers;
+  const transactions = data.transactions;
 
-  try {
-    const customersResponse = await fetch(proxyUrl + "http://localhost:3000/customers");
-    const transactionsResponse = await fetch(proxyUrl + "http://localhost:3000/transactions");
-
-    const customers = await customersResponse.json();
-    const transactions = await transactionsResponse.json();
-
-    return { customers, transactions };
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    throw error;
-  }
+  return { customers, transactions };
 }
 
 function getTransactionCounts(data) {
@@ -35,7 +27,7 @@ function generateTable(data) {
 
   data.forEach((customer) => {
     let isFirstTransaction = true;
-    customer.transactions.forEach((transaction, index) => {
+    customer.transactions.forEach((transaction) => {
       const row = document.createElement("tr");
       row.classList.add("customer-row");
       row.dataset.customerId = customer.id;
@@ -85,7 +77,7 @@ function filterTable() {
     .value.toLowerCase();
   const amountFilterValue = document
     .getElementById("amountFilter")
-    .value.trim(); // Remove leading/trailing whitespace
+    .value.trim();
 
   const filteredData = customerTransactionCounts.filter((customer) => {
     const matchesCustomer = customer.name
